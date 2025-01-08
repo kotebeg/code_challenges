@@ -12,6 +12,8 @@ mylist = [1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0]   # 3
 
 # mylist = [1, 1]
 
+"""adding descriptions ..."""
+
 def calculate_length(in_list):
 
     def sublist_counter(index, input_list):
@@ -21,14 +23,14 @@ def calculate_length(in_list):
         i = index
         while i < len(input_list)-1:
             ret_index = i
-            # print(i, ret_index)
+
             if input_list[i]!= input_list[i+1]:
                 inner_counter +=1
-                i = i + 2
+                i = i + 2   # if couple detected [1, 0, 1...] we need to jump with followed element 0 and start new chech with 1, because it 0 is allready counted
                 ret_index = i
-                # print('case 1', i)
-            elif input_list[i] == input_list[i+1] :
-                # print('case 2', ret_index + 1)
+
+            elif input_list[i] == input_list[i+1]:
+
                 return ret_index+1, inner_counter
                 
         # print('outer case')
