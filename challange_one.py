@@ -61,3 +61,95 @@ def calculate_length(in_list):
 
 
 print(calculate_length(mylist))
+
+
+
+#  palindrome integer
+
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        if x < 0:
+            return False
+        # even
+        elif len(str(x))%2 == 0 and len(str(x)) > 2:
+            half = int(len(str(x))/2)
+            x_str = str(x)
+            x_lst = [i for i in str(x)]
+
+            x_left = x_lst[:half]
+            x_right = x_lst[half:]
+            x_right.reverse()
+            if x_right == x_left:
+                return True
+            elif x_right != x_left:
+                return False
+        # odd
+        elif len(str(x))%2 != 0:
+            x_str = str(x)
+
+            middle = len(str(x))//2 + 1
+
+
+            x_str = str(x)
+            x_lst = [i for i in str(x)]
+
+            x_left = x_lst[:middle-1]
+            x_right = x_lst[middle:]
+
+            x_right.reverse()
+
+            if x_right == x_left:
+                return True
+            elif x_right != x_left:
+                return False
+        elif len(str(x)) == 0:
+            return False
+
+        elif len(str(x)) == 2:
+            x_str = str(x)
+            if x_str[0] == x_str[1]:
+                return True
+            else:
+                return False
+Solution().isPalindrome(1001)
+
+
+
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        if x < 0:
+            return False
+        # even
+
+        elif len(str(x))%2 == 0:
+
+
+            x_str = str(x)
+            half = int(len(x_str)/2)
+            # print(half)
+            for i in range(1, half+1):
+                print(i, x_str[half-i], x_str[half-1+i])
+                if x_str[half-i] == x_str[half-1+i]:
+                    pass
+                else:
+                    return False
+            return True
+
+        # odd
+        elif len(str(x))%2 != 0:
+            x_str = str(x)
+
+            middle = len(x_str)//2
+
+            for i in range(1, middle+1):
+                # print(i, x_str[middle-i], x_str[middle+i])
+                if x_str[middle-i] == x_str[middle+i]:
+                    pass
+                else:
+                    return False
+            return True
+                
+        elif len(str(x)) == 0:
+            return False
+
+Solution().isPalindrome(00)
