@@ -1,3 +1,25 @@
+#  Sqrt(x) - Leetcode 69
+""" we use binary search method 
+    complexity of log(n) or log(input_value)"""
+class Solution:
+    def mySqrt(self, x: int) -> int:
+      l, r = 0, x   # left and right edges
+      res = 0       # result
+
+      while l <= r:   
+        mid = l + ((r-l) // 2)    # define mid values
+        if mid ** 2 > x:          # 
+          r = mid - 1
+        elif mid ** 2 < x:
+          l = mid + 1
+          res = mid               # potential result, greatest mid value, befrore loop terminates >>>>>|
+        else:                     # elif mid**2 = x=, we do not define, not to increase computation    |
+          return mid              #                                                                    |
+      return res                  # potential result,  greatest mid value, befrore loop terminates <<<<|
+
+Solution().mySqrt(8)
+
+
 
 
 
